@@ -1,0 +1,12 @@
+.txtDanger{
+    color: red;
+    background-color: black;
+}
+.txtGreen{
+    color: greenyellow;
+    background-color: black;
+}
+.super:hover{
+    color:aqua;
+    background-color: tomato;
+}
