@@ -1,0 +1,20 @@
+<p class="fw-bold fs-1">Toggle</p>
+<table class="table table-bordered table-primary table-sm ms-l" >
+<h3>Car and bikes</h3>
+        <button class="btn bg-primary text-warning fw-bold fs-3" (click)="carShow()"> cars</button>&nbsp;
+        <button class="btn bg-primary text-warning fw-bold fs-3" (click)="bikeShow()"> bikes</button>
+
+<br><br>
+<ul *ngIf = "counter;  then one  else two"></ul>
+<ng-template #one> 
+    <ul >
+        <li class="text-primary fw-bold" *ngFor = "let bike of bikes" (click)="carmsg(bike)">{{bike}}  </li></ul></ng-template>
+<ng-template   #two>
+    <ul ><li class="text-primary fw-bold"*ngFor = "let car of cars" (click)="carmsg(car)" >{{car}} </li></ul></ng-template>
+<br><br>
+
+<div>
+        <div class="text-success fs-3 fw-bold"> You  have selected <span>{{selection}}</span></div>
+</div>
+</table>
+
