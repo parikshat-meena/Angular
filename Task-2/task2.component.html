@@ -1,0 +1,26 @@
+<h1>Type and search</h1>
+<input type="search" placeholder="search" #searchMessage>
+<button class="btn btn-info" (click)="serachButton(searchMessage.value)">search</button>
+        <br>
+<table >
+    <div *ngIf=" c; then one"></div>
+    <div *ngIf=" b; then two"></div>
+    {{msg}}
+    <tr class="col-2">
+    <ng-template #one>
+        <td><img src="../../../assets/image/car1.jfif" alt="" width="200px" height="200px"></td>
+        <td><img src="../../../assets/image/car2.jpg" alt="" width="200px"height="200px"></td>
+        <td><img src="../../../assets/image/car3.jfif" alt="" width="200px"height="200px"></td>
+        <td><img src="../../../assets/image/car4.jfif" alt="" width="200px"height="200px"></td>
+        <td><img src="../../../assets/image/car5.jfif" alt="" width="200px" height="200px"></td>
+    </ng-template> 
+
+    <ng-template #two>
+        <td><img src="../../../assets/image/bike1.jfif" alt="" width="200px" height="200px"></td>
+        <td><img src="../../../assets/image/bike2.jfif" alt="" width="200px" height="200px"></td>
+        <td><img src="../../../assets/image/bike3.jfif" alt="" width="200px" height="200px"></td>
+        <td><img src="../../../assets/image/bike4.jfif" alt="" width="200px" height="200px"></td>
+        <td><img src="../../../assets/image/bike5.jfif" alt="" width="200px" height="200px"></td>
+    </ng-template>
+    </tr>
+</table>
