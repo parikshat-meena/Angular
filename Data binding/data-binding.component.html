@@ -1,0 +1,24 @@
+<p>data-binding works!</p>
+<p class="text-primary bg-info">Hello {{username}}</p>
+<h5>Interpolation</h5>
+
+property binding: <input type="text" [disabled] = "disabledInput" value = "{{username}}">
+<br><br>
+Interpolation: <input type="text" disabled = "{{disabledInput}}" value = "{{username}}">
+<br>
+
+<button class="btn btn-info mt-3" (click)=" enableInput()">Enable</button>
+
+
+<!-- Event binding -->
+<hr>
+<h5>Event binding</h5>
+<button class="btn btn-primary m-3" (click) = "clickMe()">Click Me</button>
+<br><br>
+<hr>
+
+<img src="{{img}}" class="" alt="messi" height="350px">
+<br>
+<h3 class="{{class}}">{{name}}</h3>
+<br>
+<button class="btn btn-info m-3 center" (click)="switchPlayer()">switch </button>
