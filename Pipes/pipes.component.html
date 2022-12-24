@@ -1,0 +1,56 @@
+<p>pipes works!</p>
+
+<div>{{msg | uppercase}}</div>
+<div>{{msg | lowercase}}</div>
+<div>{{msg | titlecase}}</div>
+<div>{{msg | slice:10}}</div>
+<div>{{msg | slice:10:22}}</div>
+<br>
+<!-- json pipes -->
+<div>{{emp }}</div>
+<div>{{emp | json}}</div>
+<div>{{emp.id}}</div>
+<br>
+<!-- number pipes -->
+<div>{{500 | number}}</div>
+<div>{{43.1249 | number: '3.1-2'}}</div>
+<br>
+<!-- currency pipes -->
+<div>{{100 | currency}}</div>
+<div>{{100 | currency: 'GBP'}}</div>
+<div>{{100 | currency:'INR'}}</div>
+<br>
+<!-- date pipes -->
+<div>{{dateobj }}</div>
+<div>{{dateobj | date}}</div>
+<div>{{dateobj | date: 'longDate'}}</div>
+<div>{{dateobj | date :'shortDate'}}</div>
+<div>{{dateobj | date : 'mediumDate'}}</div>
+<br>
+
+<!-- custom pipes -->
+<table class="table table-dark table-hover">
+    <thead>
+        <tr>
+            <th>Roll</th>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Address</th>
+            <th>Contact</th>
+        </tr>
+        <tr *ngFor=" let s of students">
+            <td (click)=setpara(s.roll)>{{s.roll}}</td>
+            <td (click)=setpara(s.name)>{{s.name | gender : s.gender}}</td>
+            <td (click)=setpara(s.gender)>{{s.gender}}</td>
+            <td (click)=setpara(s.address)>{{s.address}}</td>
+            <td (click)=setpara(s.contact)>{{s.contact}}</td>
+        </tr>
+    </thead>
+</table>
+<br>
+
+<!-- square pipes -->
+<div >Number is {{num}} : Square of Number is {{num | square}} </div>
+<br>
+<!-- areaOfCircle pipe -->
+<div> radius = {{radius}} : area of circle = {{radius | areaOfCircle}}</div><br>
