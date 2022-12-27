@@ -1,0 +1,19 @@
+<p>fake-data works!</p>
+<table class="table table-dark table-hover table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let f of fakeData">
+            <td>{{f.id}}</td>
+            <td>{{f.name}}</td>
+            <td>{{f.address.street}}</td>
+            <td>{{f.email}}</td>
+        </tr>
+    </tbody>
+</table>
