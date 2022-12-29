@@ -1,0 +1,66 @@
+<form [formGroup]="empData" (ngsubmit)="getData(empData.value)">
+    <div class="row">
+        <div class="col-sm-6">
+            <label for="fname">First name</label>
+            <input type="text" id="fname" formControlName="fname" name="fname" class="form-control"
+                placeholder="Enter first name">
+            <div class="alert alert-danger" *ngIf="empData.get('fname').invalid && empData.get('fname').touched">
+                <div *ngIf="empData.get('fname').errors?.required">
+                    This field is required
+                </div>
+                <div *ngIf="empData.get('fname').errors?.pattern">
+                    Name requires atleast 3 letters
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <label for="lname">Last name</label>
+            <input type="text" id="lname" formControlName="lname" name="lname" class="form-control col-6"
+                placeholder="Enter last name">
+            <div class="alert alert-danger" *ngIf="empData.get('lname').invalid && empData.get('lname').touched">
+                <div *ngIf="empData.get('lname').errors?.required">This field is required</div>
+                <div *ngIf="empData.get('lname').errors?.pattern">
+                    Name requires atleast 3 letters
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 mt-3">
+            <label for="course">select course </label>
+            <select class="form-control " name="courses" formControlName="courses" id="courses">
+                <option value="">Select courses</option>
+                <option [value]="c" *ngFor="let c of courses">{{c}}</option>
+            </select>
+            <div *ngIf="empData.get('courses').invalid && empData.get('courses').touched" class="alert alert-danger">
+                <div *ngIf="empData.get('courses').errors?.required">courses is mandatory</div>
+
+            </div>
+        </div>
+        
+        <div class="col-sm-6 mt-3" >
+            <label for="email">Email</label>
+            <input type="email" name="email" formControlName="email" class="form-control" id="email">
+            <div *ngIf="empData.get('email').invalid && empData.get('email').touched" class="alert alert-danger">
+                <div *ngIf="empData.get('email').errors?.required">This field is required</div>
+                <div *ngIf="empData.get('courses').errors?.pattern">Email</div>
+            </div>
+        </div>
+        <div class="col-sm-6 mt-3">
+            <label for="num">Mobile No.</label>
+            <input type="number" formControlName="num" name="num" id="num"  class="form-control">
+            <div *ngIf="empData.get('num').invalid && empData.get('num').touched" class="alert alert-danger">
+                <div *ngIf="empData.get('num').errors?.required">* This field is required</div>
+                <div *ngIf="empData.get('num').errors?.pattern">* Enter 10 digit Mobile Number</div>
+            </div>
+        </div>
+        <div class="col-sm-7 mt-3">
+            <input type="checkbox" formControlName="term" name="term" id="term">
+            <label for="term" class="ms-2">I accept all term and condition</label>
+            <div *ngIf="empData.get('term').invalid && empData.get('term').touched" class="alert alert-danger">
+                <div *ngIf="empData.get('term').errors?.required">Please accept term and conditions</div>
+            </div>
+        </div>
+        <div class="col-sm-7 mt-3">
+            <button type="submit" class="btn btn-primary btn-sm" [disabled]="empData.invalid">Register</button>
+        </div>
+    </div>
+</form>
