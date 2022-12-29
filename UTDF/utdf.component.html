@@ -1,0 +1,68 @@
+<p>utdf works</p>
+<form #myform="ngForm" (ngSubmit)=getdata(myform.value)>
+    <div class="row">
+        <div class="col-sm-6">
+            <label for="fname">Enter First Name</label>
+            <input type="text" name="fname" id="fname" #refName="ngModel" [pattern]="reName" class="form-control"
+                ngModel placeholder="Enter Name..." required>
+
+            <div *ngIf="refName.invalid && refName.touched" class="alert alert-danger">
+                <div *ngIf=" refName.errors?.['required']">This field is required</div>
+                <div *ngIf=" refName.errors?.['pattern']">Name requires alteast 3 letters</div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <label for="lname">Enter Last Name</label>
+            <input type="text" name="lname" id="lname" class="form-control" #refLname="ngModel" ngModel
+                [pattern]="reName" placeholder="Enter Last Name Here" required>
+            <div *ngIf="refLname.invalid && refLname.touched" class="alert alert-danger">
+                <div *ngIf="refLname.errors?.['required']">This field is required</div>
+                <div *ngIf="refLname.errors?.['pattern']">Name requires atleast 3 letters</div>
+            </div>
+        </div>
+        <div class="col-sm-6 mt-3">
+            <label for="course">select course </label>
+            <select class="form-control " name="course" id="course" #refSelect="ngModel" ngModel required>
+                <option value="">Select courses</option>
+                <option [value]="c" *ngFor="let c of course">{{c}}</option>
+            </select>
+            <div *ngIf="refSelect.invalid && refSelect.touched" class="alert alert-danger">
+                <div>course is required</div>
+            </div>
+        </div>
+        <div class="col-sm-6 mt-3">
+            <label for="email">e-mail</label>
+            <input type="email" class="form-control" #refMail="ngModel" ngModel name="email" id="email" required>
+            <div *ngIf="refMail.invalid && refMail.touched" class="alert alert-danger">* This field is required</div>
+        </div>
+        <div class="col-sm-6 mt-3">
+            <label for="number">Mobile No.</label>
+            <input type="number" name="number" id="number" pattern="[0-9]{10}" class="form-control" #refNumber="ngModel" ngModel required>
+            <div *ngIf="refNumber.invalid && refNumber.touched" class="alert alert-danger">
+                <div *ngIf="refNumber.errors?.['required']">* This field is required</div>
+                <div *ngIf="refNumber.errors?.['pattern']">* Enter 10 digit Mobile Number</div>
+            </div>
+        </div>
+        <div class="col-sm-6 mt-3">
+            <label >Password
+                <input type="password" name="password" id="password"   pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" #refPass="ngModel" ngModel class="form-control" required>
+            </label>
+            <div *ngIf="refPass.invalid && refPass.touched" class="alert alert-danger">
+                <div *ngIf="refPass.errors?.['required']">This Field is required</div>
+                <div *ngIf="refPass.errors?.['pattern']">Password must contain 8 letters with  one captial alphabet, one number, one symbol </div>
+            </div>
+        </div>
+        <div class="col-sm-7 mt-3">
+            <input type="checkbox" #refTerm="ngModel" ngModel name="term" id="term" class="" required>
+            <label for="term" class="ms-2">I accept all term and condition</label>
+            <div *ngIf="refTerm.invalid && refTerm.touched" class="alert alert-danger">
+                <div>Please accept term and conditions</div>
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+            <button type="submit" class="btn btn-primary col-sm-6 mt-3" [disabled]="myform.invalid">Register</button>
+        </div>
+        <!-- {{refName.className}}   -->
+    </div>
+</form>
